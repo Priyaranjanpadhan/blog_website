@@ -11,4 +11,32 @@
     <title>Blog Website</title>
 </head>
 <body>
+    <header>
+        <!--we can see all the bootstrap class in any platform incase for reminding what it actually does.-->
+        <!--it adds container like flexbox make it responsive and backgroundcolor grey and text color to white-->
+        <nav class="navbar navbar-expand-lg navbar-white bg-grey">
+            <div class="container-fluid"><!--it will use 100% of the container with just little bit of padding in left and right-->
+                <a class="navbar-brand" href="/">My daily blog</a> <!--it's just a way of indicating the logo, adding a new style-->
+                <!--button only for the mobile phones. used in small screen-->
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#myMenu" aria-controls="myMenu" aria-expanded="false" aria-label="Toggle navigation">
+                    <!--draws the actual 3 lines-->
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="myMenu"><!--show the hiding and showing animation and myMenu link the id-->
+                    <!--in below ul I remove ms-auto to place everything in the left side and not right-->
+                    <ul class="navbar-nav"><!--sets up list style like remove bullet points and lines them horizontally, ms auto is for margin start auto to be in the right side of the screen if not then it will be in the left side of the mobile screen-->
+                        <li class="nav-item"><!--navitem is the box for single link-->
+                            <a class="nav-link active" aria-current="page" href="/">Home</a>
+                        </li>
+                        <li class="nav-item"><!--navlink for the styling for the text padding styling etc.-->
+                            <a class="nav-link active" href="/5 Blog Capstone Project/views/about.ejs">About</a>
+                        </li>
+                        <li class="nav-item"><!--active is for the slight brightness when we hover around it-->
+                            <a class="nav-link active" href="/5 Blog Capstone Project/views/contact.ejs">Contact</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
     <main>
