@@ -7,6 +7,8 @@
     <div class="row g-4"><!--Treat the children inside me as columns in a grid system. g-4 is gap 4-->
 
 
+        <!--checking if posts is array is there or not-->
+        <% if(locals.posts) { %>
         <!--we create a array and just traverse the array in index.js-->
         <% posts.foreach(locals.(post, index) => { %>
             <!--how each postcard looks in different screen size-->
@@ -20,12 +22,12 @@
                     <a href="/post/<%= index %>" class="btn btn-link p-0 text-decoration-none">Read Full Post</a>
                 </div>
                 <!--how each card footer will look like, the edit and delete option-->
-                <div class="card-footer bg-transparent border-top-0 d-flex justify-content-between"><!--card-footer(a dedicated section at the bottom of the card) -->
-                    <a href="/edit/<%= index %>" class="btn btn-sm btn-outline-secondary">
+                <div class="card-footer bg-transparent border-top-0 d-flex justify-content-between"><!--card-footer(a dedicated section at the bottom of the card) d-flex justify-content-betwen(display flex and justify content between means both button are inthe extreme left and right point)-->
+                    <a href="/edit/<%= index %>" class="btn btn-sm btn-outline-secondary"><!--btn class for button, see in bootstrap it clearly shows it what it does-->
                         <i class="fa-solid fa-pen-to-square"></i> Edit
                     </a>
-                    <form action="/delete" method="post" class="d-inline">
-                        <input type="hidden" name="index" value="<%= index %>">
+                    <form action="/delete" method="post" class="d-inline"><!--d-inline (inline element)-->
+                        <input type="hidden" name="index" value="<%= index %>"><!--user doesn't see this, but when click delete it sends index.js which index is it(eg: 5) to the server so you know which post to destroy-->
                         <button type="submit" class="btn btn-sm btn-outline-danger">
                             <i class="fa-solid fa-trash"></i> Delete
                         </button>
@@ -35,7 +37,9 @@
             </div>
         </div>
         <% }) %>
+        <% } %>
 
+        <!--add new card (+ plus button)-->
         <div class="col-12 col-md-6 col-lg-4">
             <a href="/compose" class="text-decoration-none text-muted">
                 <div class="card h-100 d-flex align-items-center justify-content-center hover-shadow" id="postcardstyle">
