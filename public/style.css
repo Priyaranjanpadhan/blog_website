@@ -1,0 +1,10 @@
+#postcardstyle{
+    border: 2px dashed #bdc3c7;
+    min-height: 200px;
+    background-color: #f8f9fa;
+    transition: transform 0.2s;
+}
+#postcardstyle:hover{
+    transform: translateY(-px);
+    background-color: #e9ecef;
+}

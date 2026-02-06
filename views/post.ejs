@@ -1,0 +1,32 @@
+<!--To read the blog post-->
+
+<%- include("partials/header") %>
+
+<div class="container mt-5">
+    <!--it lets user title of the blog in a separate block-->
+    <div class="mb-5">
+        <h1><%= post.title %></h1>
+        <hr>
+    </div>
+
+    <!--this section lets user read the blog post-->
+    <div class="row"><!--to work col-lg-8 we need this, it is predefined-->
+        <div class="col-lg-8"><!--it tells the website to fill 8 out of 12 about 66%, this creates a good user experience cause human eye can't strech out the full screen.-->
+            <p class="fs-5 lh-lg"><%= post.content %></p>
+        </div>
+    </div>
+
+    <!--it is button where there is a edit button such that we can change the blog post too-->
+    <div class="mt-5">
+        <a href="/" class="btn btn-outline-dark">
+            <i class="fa-solid fa-arrow-left"></i> Back to Home
+        </a>
+
+        <a href="/edit/<%= index %>" class="btn btn-outline-secondary ms-2">
+            <i class="fa-solid fa-pen-to-square"></i> Edit Post
+        </a>
+    </div>
+
+</div>
+
+<%- include("partials/footer") %>

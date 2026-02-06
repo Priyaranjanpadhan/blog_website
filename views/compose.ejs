@@ -1,0 +1,29 @@
+<!--The page with the black form where you write a new post, plus button links to this file-->
+
+
+<%- include("partials/header") %>
+
+<div class="container mt-5"><!--same size as index.ejs file sizing for similar-->
+    <h1>Compose New Post</h1>
+
+    <!--a form where we compose new thing, we call it using /compose in index.js-->
+    <form action="/compose" method="post">
+        <!--blog title label-->
+        <div class="mb-3"><!--margin bottom 3-->
+            <label for="postTitle" class="form-label">Title</label><!--from-label(little bit of padding to the bottom of the text)-->
+            <!--here for and id are connected cause when user clicks "Title" it automatically selects the input box for them  so we need for and id for that, in form we use that many times-->
+            <input type="text" class="form-control" name="postTitle" id="postTitle" required><!--name is for the when index.js calls we need req.body.postTitle-->
+        </div>
+
+        <div class="mb-3">
+            <label for="postBody" class="form-label">Post Content</label>
+            <!--form control(makes the input width 100%, padding inside the box, blow glow border)-->
+            <textarea class="form-control" name="postBody" id="postBody" rows="5" required></textarea>
+        </div>
+
+        <!--last button and class is in bootstrap-->
+        <button type="submit" class="btn btn-primary">Publish</button>
+    </form>
+</div>
+
+<%- include("partials/footer") %>

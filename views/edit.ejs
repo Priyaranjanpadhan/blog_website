@@ -1,0 +1,31 @@
+<!--this is for any blog to be edited-->
+<!--same as compose.ejs, here prefilled data, should be a hidden index so that server will know which blog post it is-->
+
+<%- include("partials/header") %>
+
+<div class="container mt-5">
+    <h1>Edit Post</h1>
+
+    <form action="/update" method="post">
+        <!--the input tells us which post it is by looking at value--><!--name = value in index.js, in js when type hidden it gets the js but user doesn't see the index values cause it's not for his usage-->
+        <input type="hidden" name="index" value="<%= index %>">
+
+        <div class="mb-3">
+            <label for="postTitle" class="form-label">Title</label>
+            <!--we don't need the editor to be write the title once again so we give them the previous saved title and then they can change-->
+            <input type="text" class="form-control" name="postTitle" id="postTitle" value="<%= post.title %> required">
+        </div>
+
+        <div class="mb-3">
+            <!--in textarea we don't use value cause there are lots of content and just put that between the opening and closing tag otherwise it would break the html-->
+            <label for="postBody" class="form-label">Post Content</label>
+            <textarea type="text" class="form-control" name="postBody" id="postBody" rows="5" required><%= post.content%></textarea> 
+        </div>
+
+        <div class="d-flex gap-2">
+            <button type="submit" class="btn btn-success">Update Post</button>
+            <a href="/post/<%= index %>" class="btn btn-outline-secondary">Cancel</a>
+        </div>
+
+    </form>
+</div>
