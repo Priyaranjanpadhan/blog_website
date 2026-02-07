@@ -10,7 +10,7 @@
         <!--checking if posts is array is there or not-->
         <% if(locals.posts) { %>
         <!--we create a array and just traverse the array in index.js-->
-        <% posts.forEach(locals.(post, index) => { %>
+        <% posts.forEach((post, index) => { %>
             <!--how each postcard looks in different screen size-->
         <div class="col-12 col-md-6 col-lg-4"><!--it is for the small screen 12 units(1postcard) 6 units (2postcard) 4 untis (3postcard), it will resize it self accordingly due to the bootstrap-->
             <!--how each card look-->
@@ -39,8 +39,7 @@
                 
             </div>
         </div>
-        <% }) %>
-        <% } %>
+        <% })} %>
 
         <!--add new card (+ plus button)-->
         <div class="col-12 col-md-6 col-lg-4">
