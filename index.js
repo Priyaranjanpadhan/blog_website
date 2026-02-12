@@ -24,15 +24,15 @@ app.get("/", (req, res) => {
 });
 
 //Compose page: Shows the form to create a new post
-app,get("/compose", (req, res) => {
-    res.render(compose.ejs)
+app.get("/compose", (req, res) => {
+    res.render("compose.ejs");
 });
 
 //Compose Page: takes info from the client: Create Post
 app.post("/compose", (req, res) => {
     const post = {
         title: req.body.postTitle, //Grabs input from the form itself 
-        body: req.body.postbody
+        body: req.body.postBody
     };
     blogEntries.push(post);//When input done then it have to store in the array to use it in future
     res.redirect("/");//Sends the user back to the home page
@@ -74,6 +74,16 @@ app.post("/update", (req, res) => {
     //back to home
     res.redirect("/");
 });
+
+//Delete Post: Removes a post from the list
+app.post("/delete", (req, res) => {
+    const index = req.body.index;//grabs the hidden input index
+
+    //removes the 1 item at index .splice(start, deleteCount)
+    blogEntries.splice(index, 1);
+
+    res.redirect("/");
+})
 
 //listening constanty
 app.listen(port, () => {
